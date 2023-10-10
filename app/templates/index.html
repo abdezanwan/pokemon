@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Hello from HTML!</h1>
+
+    {% if red == True %}
+    <p style="color: red">{{ message }}</p>
+    {% else %}
+    <p>{{ message }}</p>
+    {% endif %}
+    <div> {% if search_form %}
+      <h3 class="text-center">Search for a Pokemon</h3>
+      <div class="mb-3">
+          {{ search_form.pokemon_name.label(class='form-label') }}
+          {{ search_form.pokemon_name(class='form-control', placeholder='Pokemon Name') }}
+      </div>
+  {% endif %}
+
+    <ul>
+      {% for person in html_people %}
+      <li>{{ person }}</li>
+      {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Your Pokemon Collection</h2>
+    <ul>
+        {% for pokemon in user.pokemons %}
+            <li>{{ pokemon.pokemon.name }}</li>
+        {% endfor %}
+    </ul>
+    <div> {% if search_form %}
+    <h3 class="text-center">Search for a Pokemon</h3>
+    <div class="mb-3">
+        {{ search_form.pokemon_name.label(class='form-label') }}
+        {{ search_form.pokemon_name(class='form-control', placeholder='Pokemon Name') }}
+    </div>
+{% endif %}
+</div>
+{% endblock %}
